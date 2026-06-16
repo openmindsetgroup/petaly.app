@@ -3,30 +3,36 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Petaly — Beautiful intimacy tracking for Android</title>
-<meta name="description" content="A private intimacy tracker for Android. $6.99 once. No subscriptions, no ads, no catch. Your data stays on your phone."/>
-<meta name="keywords" content="petaly, intimacy tracker, sex tracker, private app, android, no subscription"/>
+<title>Petaly — Beautiful, private intimacy tracking for Android</title>
+<meta name="description" content="A private intimacy tracker for Android. Your entries never leave your device — no accounts, no servers, no subscription. $6.99 once, free to try."/>
+<meta name="keywords" content="petaly, intimacy tracker, sex tracker, private app, android, no subscription, offline"/>
 
-<meta property="og:title" content="Petaly — Beautiful intimacy tracking for Android"/>
-<meta property="og:description" content="$6.99 once. No subs, no ads, no catch."/>
+<meta property="og:title" content="Petaly — Beautiful, private intimacy tracking"/>
+<meta property="og:description" content="Your entries never leave your device. No accounts, no servers, no subscription. $6.99 once."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://petaly.app"/>
+<meta name="theme-color" content="#221C39"/>
 
 <link rel="icon" type="image/png" href="./icon.png"/>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet"/>
 
 <style>
 /* ── Reset & Base ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
-  font-family: 'Inter', -apple-system, system-ui, sans-serif;
-  background: linear-gradient(180deg, #e9d5ff 0%, #f5d0e8 50%, #fbcfe8 100%);
+  font-family: 'Quicksand', -apple-system, system-ui, sans-serif;
+  /* Plum gradient — Midnight Bloom */
+  background:
+    radial-gradient(120% 70% at 50% -8%, rgba(245,183,208,0.14) 0%, rgba(245,183,208,0) 46%),
+    radial-gradient(80% 60% at 88% 8%, rgba(190,170,255,0.10) 0%, rgba(190,170,255,0) 55%),
+    radial-gradient(70% 55% at 6% 92%, rgba(190,170,255,0.09) 0%, rgba(190,170,255,0) 55%),
+    linear-gradient(165deg, #2C2142 0%, #221C39 50%, #2A1D34 100%);
   background-attachment: fixed;
-  color: #2d2640;
+  color: #F7ECF1;
   line-height: 1.6;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -37,287 +43,339 @@ a { color: inherit; text-decoration: none; }
 
 /* ── Design Tokens ── */
 :root {
-  --bg-surface:        rgba(255, 255, 255, 0.55);
-  --bg-card:           rgba(255, 255, 255, 0.75);
-  --text:              #2d2640;
-  --text-muted:        #6b5b8a;
-  --primary:           #d6336c;
-  --primary-deep:      #9d174d;
-  --accent-pink:       #f9a8d4;
-  --accent-lavender:   #c4b5fd;
-  --border:            rgba(157, 23, 77, 0.12);
-  --shadow-soft:       0 4px 24px rgba(157, 23, 77, 0.08);
-  --shadow-card:       0 8px 32px rgba(157, 23, 77, 0.12);
+  --cream:        #F7ECF1;
+  --cream-muted:  rgba(247, 236, 241, 0.60);
+  --blossom:      #F3A7C6;
+  --screen-navy:  #242947;
+  --surface:      rgba(247, 236, 241, 0.045);
+  --surface-line: rgba(247, 236, 241, 0.10);
+  --bloom:        linear-gradient(160deg, #FBE3EC, #F3A7C6 55%, #E98FB6);
+  --halo:         0 40px 120px rgba(243, 167, 198, 0.22), 0 30px 80px rgba(0, 0, 0, 0.50);
 }
-
-/* ── Typography ── */
-.font-display { font-family: 'Quicksand', sans-serif; }
 
 /* ── Layout ── */
-.container {
-  width: 100%;
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+.container { width: 100%; max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+section { padding: 3rem 0; }
+
+/* ── Shared type ── */
+.kicker {
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  color: var(--blossom);
+  margin-bottom: 1rem;
 }
-section { padding: 3.5rem 0; }
+.accent { color: var(--blossom); }
+.bloom-text {
+  background: var(--bloom);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
 /* ── Hero ── */
-.hero {
-  padding-top: 3.5rem;
-  padding-bottom: 2rem;
-  text-align: center;
-}
+.hero { padding-top: 3.5rem; padding-bottom: 1.5rem; text-align: center; }
 .hero-icon {
-  width: 128px;
-  height: 128px;
-  margin: 0 auto 1.25rem;
-  filter: drop-shadow(0 10px 28px rgba(157, 23, 77, 0.22));
+  width: 112px; height: 112px;
+  margin: 0 auto 1.5rem;
+  border-radius: 28px;
+  filter: drop-shadow(0 18px 44px rgba(243, 167, 198, 0.34));
 }
 .brand {
-  font-family: 'Quicksand', sans-serif;
   font-weight: 600;
-  font-size: 2.5rem;
-  letter-spacing: -0.02em;
-  color: var(--primary-deep);
-  margin-bottom: 0.5rem;
+  font-size: 2.2rem;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  margin-bottom: 1.25rem;
 }
-.brand-flower {
-  display: inline-block;
-  font-size: 1.5rem;
-  vertical-align: middle;
-  margin-left: 0.25rem;
-}
-.tagline {
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 500;
-  font-size: 1.5rem;
-  line-height: 1.4;
-  color: var(--text);
-  max-width: 28rem;
-  margin: 0 auto 2rem;
-}
-.tagline strong {
+.brand-dot { color: var(--blossom); }
+.hero h1 {
   font-weight: 700;
-  color: var(--primary);
+  font-size: clamp(2.3rem, 6.2vw, 3.6rem);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  color: var(--cream);
+  max-width: 16ch;
+  margin: 0 auto 1.25rem;
+}
+.hero-sub {
+  font-weight: 500;
+  font-size: clamp(1.05rem, 2.6vw, 1.3rem);
+  line-height: 1.5;
+  color: var(--cream-muted);
+  max-width: 30rem;
+  margin: 0 auto 2.25rem;
 }
 
 /* ── Play Store Badge ── */
 .play-badge {
   display: inline-block;
   transition: transform 0.2s ease, filter 0.2s ease;
-  filter: drop-shadow(0 4px 12px rgba(157, 23, 77, 0.15));
+  filter: drop-shadow(0 10px 28px rgba(243, 167, 198, 0.30));
 }
-.play-badge:hover { transform: translateY(-2px); filter: drop-shadow(0 8px 20px rgba(157, 23, 77, 0.22)); }
-.play-badge img { height: 64px; width: auto; }
+.play-badge:hover { transform: translateY(-2px); filter: drop-shadow(0 14px 34px rgba(243, 167, 198, 0.42)); }
+.play-badge img { height: 60px; width: auto; }
 
-/* ── Positioning Bullets ── */
-.bullets {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
+/* ── Positioning chips ── */
+.bullets { padding-top: 1.25rem; padding-bottom: 1.5rem; }
 .bullets-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem 0.75rem;
-  text-align: center;
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 0.6rem 0.7rem; text-align: center;
 }
-.bullet {
-  font-family: 'Quicksand', sans-serif;
+.chip {
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   letter-spacing: 0.01em;
-  color: var(--primary-deep);
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  color: var(--cream);
+  background: var(--surface);
+  border: 1px solid var(--surface-line);
   border-radius: 999px;
-  padding: 0.55rem 1.1rem;
-  box-shadow: var(--shadow-soft);
+  padding: 0.55rem 1.15rem;
   white-space: nowrap;
+  backdrop-filter: blur(6px);
 }
 
 /* ── Screenshots ── */
-.screenshots-section {
-  padding-top: 0.5rem;
-  padding-bottom: 2.5rem;
-}
+.screenshots-section { padding-top: 1rem; padding-bottom: 2.5rem; }
 .screenshots {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  max-width: 720px;
+  gap: 1.25rem;
+  max-width: 780px;
   margin: 0 auto;
   align-items: start;
 }
 .screenshot {
-  border-radius: 1.25rem;
+  position: relative;
+  border-radius: 1.4rem;
   overflow: hidden;
-  box-shadow: var(--shadow-card);
-  background: transparent;
+  border: 1px solid var(--surface-line);
+  box-shadow: var(--halo);
 }
-.screenshot img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+.screenshot img { width: 100%; height: auto; display: block; }
 
-/* ── About Paragraph ── */
-.about {
-  text-align: center;
-  padding-top: 1rem;
-  padding-bottom: 3rem;
+/* ── Privacy / features ── */
+.privacy { text-align: center; }
+.privacy h2, .price h2 {
+  font-weight: 700;
+  font-size: clamp(1.9rem, 4.8vw, 2.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  max-width: 18ch;
+  margin: 0 auto 0.9rem;
 }
-.about-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 1.25rem;
-  padding: 2rem 1.75rem;
-  max-width: 36rem;
+.section-sub {
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--cream-muted);
+  max-width: 34rem;
+  margin: 0 auto 2.5rem;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 720px;
   margin: 0 auto;
-  box-shadow: var(--shadow-soft);
+  text-align: left;
+}
+.feature {
+  background: var(--surface);
+  border: 1px solid var(--surface-line);
+  border-radius: 1.25rem;
+  padding: 1.5rem 1.5rem;
+  backdrop-filter: blur(6px);
+}
+.feature-ico {
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  border-radius: 12px;
+  background: rgba(243, 167, 198, 0.12);
+  margin-bottom: 0.9rem;
+}
+.feature-ico svg { width: 22px; height: 22px; stroke: var(--blossom); fill: none; stroke-width: 1.8; }
+.feature h3 {
+  font-weight: 700; font-size: 1.08rem; color: var(--cream); margin-bottom: 0.35rem;
+}
+.feature p { font-weight: 500; font-size: 0.95rem; line-height: 1.55; color: var(--cream-muted); }
+.data-safety {
+  margin: 2.25rem auto 0;
+  max-width: 36rem;
+  font-weight: 500;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--cream-muted);
+}
+.data-safety strong { color: var(--cream); font-weight: 600; }
+
+/* ── Price hero ── */
+.price { text-align: center; }
+.price-card {
+  background: var(--surface);
+  border: 1px solid var(--surface-line);
+  border-radius: 1.75rem;
+  padding: 3rem 2rem 2.5rem;
+  max-width: 38rem;
+  margin: 0 auto;
+  box-shadow: 0 30px 90px rgba(0,0,0,0.35);
+  backdrop-filter: blur(8px);
+}
+.price-numeral {
+  font-family: 'Fredoka', 'Quicksand', sans-serif;
+  font-weight: 600;
+  font-size: clamp(4.5rem, 16vw, 7.5rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin: 0.5rem 0 0.25rem;
+}
+.price-once { font-weight: 600; font-size: 1.15rem; color: var(--cream); margin-bottom: 0.4rem; }
+.price-note { font-weight: 500; font-size: 0.98rem; color: var(--cream-muted); margin-bottom: 2rem; }
+.price .play-badge { margin: 0 auto; }
+
+/* ── About ── */
+.about { text-align: center; padding-top: 1rem; padding-bottom: 3rem; }
+.about-card {
+  background: var(--surface);
+  border: 1px solid var(--surface-line);
+  border-radius: 1.5rem;
+  padding: 2.25rem 2rem;
+  max-width: 38rem;
+  margin: 0 auto;
+  backdrop-filter: blur(6px);
 }
 .about-card p {
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1.05rem;
   line-height: 1.7;
-  color: var(--text);
+  color: var(--cream);
 }
-.about-card p + p { margin-top: 1rem; }
-
-/* ── CTA bottom ── */
-.cta-bottom {
-  text-align: center;
-  padding-top: 1rem;
-  padding-bottom: 3rem;
-}
-.cta-bottom .price-note {
-  font-family: 'Quicksand', sans-serif;
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  margin-top: 0.75rem;
-}
+.about-card p + p { margin-top: 1rem; color: var(--cream-muted); }
 
 /* ── Footer ── */
 footer {
-  padding: 2rem 0 3rem;
+  padding: 2.5rem 0 3.5rem;
   text-align: center;
-  border-top: 1px solid var(--border);
-  margin-top: 2rem;
+  border-top: 1px solid var(--surface-line);
+  margin-top: 1.5rem;
 }
 .footer-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem 1.5rem;
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
+  display: flex; justify-content: center; flex-wrap: wrap;
+  gap: 1rem 1.75rem; margin-bottom: 1rem; font-size: 0.92rem; font-weight: 500;
 }
-.footer-links a {
-  color: var(--text-muted);
-  transition: color 0.2s;
-}
-.footer-links a:hover { color: var(--primary); }
-.footer-meta {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  opacity: 0.8;
-}
+.footer-links a { color: var(--cream-muted); transition: color 0.2s; }
+.footer-links a:hover { color: var(--blossom); }
+.footer-meta { font-size: 0.82rem; color: var(--cream-muted); opacity: 0.85; }
 
 /* ── Responsive ── */
-@media (max-width: 640px) {
-  .brand { font-size: 2rem; }
-  .tagline { font-size: 1.2rem; }
-  .hero-icon { width: 104px; height: 104px; }
-  .play-badge img { height: 56px; }
-  .screenshots { grid-template-columns: 1fr; max-width: 320px; gap: 1.25rem; }
+@media (max-width: 720px) {
+  .screenshots { grid-template-columns: 1fr; max-width: 340px; gap: 1.5rem; }
+  .feature-grid { grid-template-columns: 1fr; }
   section { padding: 2.5rem 0; }
-  .about-card { padding: 1.5rem 1.25rem; }
-  .bullets-row { gap: 0.4rem 0.5rem; }
-  .bullet { font-size: 0.85rem; padding: 0.45rem 0.9rem; }
+}
+@media (max-width: 480px) {
+  .play-badge img { height: 52px; }
+  .chip { font-size: 0.82rem; padding: 0.45rem 0.95rem; }
 }
 
-/* ── Selection ── */
-::selection { background: var(--accent-pink); color: var(--primary-deep); }
+::selection { background: var(--blossom); color: #2A1D34; }
 </style>
 </head>
 <body>
 
 <!-- ═══ Hero ═══ -->
 <section class="hero container">
-  <!-- Cherry blossom icon (inline SVG — swap for ./icon.png if preferred) -->
-  <svg class="hero-icon" viewBox="-100 -100 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Petaly">
-    <defs>
-      <radialGradient id="petal" cx="50%" cy="35%">
-        <stop offset="0%" stop-color="#fce7f3"/>
-        <stop offset="60%" stop-color="#f9a8d4"/>
-        <stop offset="100%" stop-color="#f472b6"/>
-      </radialGradient>
-    </defs>
-    <g fill="url(#petal)">
-      <ellipse cx="0" cy="-38" rx="32" ry="42"/>
-      <ellipse cx="0" cy="-38" rx="32" ry="42" transform="rotate(72)"/>
-      <ellipse cx="0" cy="-38" rx="32" ry="42" transform="rotate(144)"/>
-      <ellipse cx="0" cy="-38" rx="32" ry="42" transform="rotate(216)"/>
-      <ellipse cx="0" cy="-38" rx="32" ry="42" transform="rotate(288)"/>
-    </g>
-    <!-- 5-pointed star center -->
-    <polygon points="0,-18 5.3,-5.5 18,-5.5 7.8,3.1 11.6,15.6 0,8.4 -11.6,15.6 -7.8,3.1 -18,-5.5 -5.3,-5.5" fill="#9d174d"/>
-    <!-- stamen dots around center -->
-    <g fill="#fef3c7">
-      <circle cx="0" cy="-9" r="2.1"/>
-      <circle cx="8.6" cy="-2.8" r="2.1"/>
-      <circle cx="5.3" cy="7.3" r="2.1"/>
-      <circle cx="-5.3" cy="7.3" r="2.1"/>
-      <circle cx="-8.6" cy="-2.8" r="2.1"/>
-    </g>
-    <!-- center -->
-    <circle cx="0" cy="0" r="3.2" fill="#f59e0b"/>
-  </svg>
-
-  <h1 class="brand">Petaly</h1>
-  <p class="tagline">Beautiful intimacy tracking.<br/><strong>No monthly fees. No ads. No catch.</strong></p>
+  <img class="hero-icon" src="./icon.png" alt="Petaly app icon"/>
+  <div class="brand">Petaly<span class="brand-dot">.</span></div>
+  <p class="kicker">Private intimacy tracker · Android</p>
+  <h1>Beautiful intimacy tracking, kept entirely <span class="accent">private</span>.</h1>
+  <p class="hero-sub">Log your moments, watch the patterns bloom — all on your phone, where they belong.</p>
 
   <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.omsgroup.petaly" aria-label="Get Petaly on Google Play">
     <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"/>
   </a>
 </section>
 
-<!-- ═══ Positioning Bullets ═══ -->
+<!-- ═══ Positioning chips ═══ -->
 <section class="bullets container">
   <div class="bullets-row">
-    <span class="bullet">Beautiful</span>
-    <span class="bullet">Honest</span>
-    <span class="bullet">One payment</span>
-    <span class="bullet">No ads</span>
-    <span class="bullet">No tricks</span>
+    <span class="chip">Beautiful</span>
+    <span class="chip">Private</span>
+    <span class="chip">No accounts</span>
+    <span class="chip">One payment</span>
+    <span class="chip">No ads</span>
   </div>
 </section>
 
 <!-- ═══ Screenshots ═══ -->
 <section class="screenshots-section container">
   <div class="screenshots">
-    <div class="screenshot"><img src="./screenshots/01-home.png" alt="Petaly home screen — track your moments"/></div>
-    <div class="screenshot"><img src="./screenshots/02-calendar.png" alt="Petaly calendar — log, view, discover"/></div>
-    <div class="screenshot"><img src="./screenshots/03-privacy.png" alt="Petaly privacy — biometric lock, no servers, no account"/></div>
+    <div class="screenshot"><img src="./screenshots/01-home.png" alt="Petaly home screen — track your moments beautifully"/></div>
+    <div class="screenshot"><img src="./screenshots/02-calendar.png" alt="Petaly calendar — log, view and discover with unlimited entries"/></div>
+    <div class="screenshot"><img src="./screenshots/03-privacy.png" alt="Petaly new entry — custom notes, activities and tags"/></div>
+  </div>
+</section>
+
+<!-- ═══ Privacy / features ═══ -->
+<section class="privacy container">
+  <p class="kicker">Private by design</p>
+  <h2>Your most intimate data never leaves your <span class="accent">device</span>.</h2>
+  <p class="section-sub">Privacy isn't a setting in Petaly — it's the architecture. There's nothing to sign up for and nowhere for your entries to go.</p>
+
+  <div class="feature-grid">
+    <div class="feature">
+      <div class="feature-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Stays on your phone</h3>
+      <p>Your entries never leave your device. No servers, no cloud — there's no backend for your data to live on.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/><path d="M2 2l20 20" stroke-linecap="round"/></svg>
+      </div>
+      <h3>No account, ever</h3>
+      <p>No sign-up, no login, no email. Open the app and start tracking — nothing about you is collected.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+      </div>
+      <h3>Encrypted &amp; locked</h3>
+      <p>Everything sits in an encrypted local database, behind your fingerprint or PIN. No tracking, no analytics, no ads.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="M8 11l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 21h16" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Never locked in</h3>
+      <p>Export your full history to a file anytime, free. Your data is always yours to keep, move, or take with you.</p>
+    </div>
+  </div>
+
+  <p class="data-safety">Don't just take our word for it — Google's own Play <strong>Data safety</strong> card says it plainly: <strong>no data collected, no data shared</strong>.</p>
+</section>
+
+<!-- ═══ Price hero ═══ -->
+<section class="price container">
+  <div class="price-card">
+    <p class="kicker">Simple, honest pricing</p>
+    <div class="price-numeral bloom-text">$6.99</div>
+    <p class="price-once">One time. Yours for life.</p>
+    <p class="price-note">Free to try, with unlimited entries on the free tier. Upgrade once for advanced stats, widgets, themes and year-in-review. No subscription on the core tracker, ever.</p>
+    <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.omsgroup.petaly" aria-label="Get Petaly on Google Play">
+      <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"/>
+    </a>
   </div>
 </section>
 
 <!-- ═══ About ═══ -->
 <section class="about container">
   <div class="about-card">
-    <p>A gorgeous intimacy tracker built for Android — designed for people who want beauty, privacy, and honesty from an app that handles their most intimate moments.</p>
-    <p>Log your moments, see the patterns on a beautiful calendar, and keep everything on your phone where it belongs. No account. No servers. No monthly fee.</p>
+    <p>Petaly is a gorgeous intimacy tracker built for Android — made for people who want beauty, privacy, and honesty from an app that holds their most intimate moments.</p>
+    <p>Log your moments, see the patterns on a beautiful calendar, and keep everything on your phone. No account. No servers. No monthly fee.</p>
   </div>
-</section>
-
-<!-- ═══ Bottom CTA ═══ -->
-<section class="cta-bottom container">
-  <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.omsgroup.petaly" aria-label="Get Petaly on Google Play">
-    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"/>
-  </a>
-  <p class="price-note">$6.99 one-time premium · free to try · Android only</p>
 </section>
 
 <!-- ═══ Footer ═══ -->
@@ -325,7 +383,7 @@ footer {
   <div class="footer-links">
     <a href="https://openmindsetgroup.com/privacy-terms.html#privacy-policy">Privacy Policy</a>
     <a href="https://openmindsetgroup.com/privacy-terms.html#terms-of-service">Terms of Service</a>
-    <a href="mailto:cltready@openmindsetgroup.com?subject=Petaly">Contact</a>
+    <a href="mailto:info@openmindsetgroup.com?subject=Petaly">Contact</a>
   </div>
   <p class="footer-meta">© 2026 Open Mindset Group LLC</p>
 </footer>
