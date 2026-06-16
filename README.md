@@ -1,6 +1,6 @@
 # petaly.app
 
-Single-page landing for Petaly. Deployed via GitHub Pages with a custom domain.
+Single-page landing for Petaly — a beautiful, private intimacy tracker for Android. Deployed via GitHub Pages with a custom domain. Styled to the **Midnight Bloom** brand system (plum gradient, Quicksand + Fredoka, blossom-pink accents).
 
 ## File structure
 
@@ -8,26 +8,36 @@ Single-page landing for Petaly. Deployed via GitHub Pages with a custom domain.
 petaly.app/
 ├── CNAME                  ← contains "petaly.app" — GitHub Pages reads this
 ├── index.html             ← entire page (HTML + inline CSS, no build step)
-├── icon.png               ← (you drop in) — favicon + optional hero icon
+├── icon.png               ← app icon — favicon + hero logo
 └── screenshots/
-    ├── 01-home.png        ← Play Store screenshot slot 1 (Home — "track your moments beautifully")
-    ├── 02-calendar.png    ← Play Store screenshot slot 2 (Calendar — "log, view, discover")
-    └── 03-privacy.png     ← Play Store screenshot slot 4 (Privacy — "private by design")
+    ├── 01-home.png        ← Home — "track your moments beautifully"
+    ├── 02-calendar.png    ← Calendar — "log, view, discover"
+    └── 03-privacy.png     ← New entry — "custom notes, activities, tags"
 ```
 
-## Before pushing to GitHub
+## Page sections
 
-1. Drop your Play Store icon PNG in as `icon.png` (the cherry-blossom flower).
-2. Copy 3 of your 5 existing Play Store screenshots into `screenshots/` with those exact filenames.
-   - Recommended: slot 1 (home), slot 2 (calendar), slot 4 (privacy). They give the best 3-up story.
-   - If you'd rather use different slots, just rename them to `01-home.png` / `02-calendar.png` / `03-privacy.png`.
+The page is a single `index.html` with inline CSS (no build step, no JS). In order:
+
+1. **Hero** — app icon, brand, headline, and a "Free to use · $6.99 once to go further" line + Play badge.
+2. **Positioning chips** — Beautiful · Private · Free to use · No accounts · No ads.
+3. **Screenshots** — three Play Store frames in soft, haloed cards.
+4. **Capabilities** — six cards covering what the app does (unlimited entries, calendar, stats, custom activities, app lock, free export).
+5. **Private by design** — four privacy cards + the Play "Data safety: no data collected, no data shared" line.
+6. **Pricing (free-first)** — the free tier as the hero ("the whole tracker is free, forever"), with Premium ($6.99 one-time) framed as an optional upgrade that adds depth, not access.
+7. **About** + **Footer** (Privacy Policy, Terms, Contact).
+
+## Editing notes
+
+- **Copy is governed by `../../FACTS.md`** — the verified claims sheet. Every marketable claim on this page must trace to it. Keep the free/premium split precise (free = up to 5 custom activities, basic stats, dark mode; premium = unlimited activities, advanced graphs, themes). Never reintroduce forbidden wording (e.g. "doesn't connect to the internet" / "no INTERNET permission").
+- **Brand:** Midnight Bloom style guide. Colors and type are defined as CSS variables in the `:root` block of `index.html`. One accent per headline — closing word in blossom pink.
+- The hero uses the real `icon.png`. Screenshots are the finished Play Store marketing frames (plum background + captions already baked in), shown as-is.
+- Privacy + Terms link to the combined page at `openmindsetgroup.com/privacy-terms.html` (with anchors). Contact routes to `info@openmindsetgroup.com`.
 
 ## Local preview
 
 Just double-click `index.html` to open in your browser. No server needed.
 
-## Notes
+## Deploy
 
-- The hero icon is currently an inline SVG of a cherry blossom (matches your brand). If you'd rather use the actual app icon, swap the `<svg class="hero-icon">…</svg>` block in `index.html` for `<img class="hero-icon" src="./icon.png" alt="Petaly">`.
-- Privacy + Terms link to the existing combined page at `openmindsetgroup.com/privacy-terms.html` (with anchors).
-- Contact email currently routes to `cltready@openmindsetgroup.com` — replace with a Petaly-specific address if you want.
+GitHub Pages serves `main` from this repo on the custom domain (see `CNAME`). A `git push origin main` publishes the live site within a minute or so.
