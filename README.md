@@ -19,12 +19,12 @@ petaly.app/
 
 The page is a single `index.html` with inline CSS (no build step, no JS). In order:
 
-1. **Hero** — app icon, brand, headline, and a "Free to use · $6.99 once to go further" line + Play badge.
+1. **Hero** — app icon, brand, headline, and a "Free to use · $8.99 once to go further" line + Play badge.
 2. **Positioning chips** — Beautiful · Private · Free to use · No accounts · No ads.
 3. **Screenshots** — three Play Store frames in soft, haloed cards.
 4. **Capabilities** — six cards covering what the app does (unlimited entries, calendar, stats, custom activities, app lock, free export).
 5. **Private by design** — four privacy cards + the Play "Data safety: no data collected, no data shared" line.
-6. **Pricing (free-first)** — the free tier as the hero ("the whole tracker is free, forever"), with Premium ($6.99 one-time) framed as an optional upgrade that adds depth, not access.
+6. **Pricing (free-first)** — the free tier as the hero ("the whole tracker is free, forever"), with Premium ($8.99 one-time) framed as an optional upgrade that adds depth, not access.
 7. **About** + **Footer** (Privacy Policy, Terms, Contact).
 
 ## Editing notes
