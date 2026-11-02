@@ -1,0 +1,41 @@
+/* Petaly guides — Midnight Bloom, shared by all /guides/ pages */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:#221C39}
+:root{--cream:#F7ECF1;--cream-muted:rgba(247,236,241,.66);--blossom:#F3A7C6;--surface:rgba(247,236,241,.045);--surface-line:rgba(247,236,241,.12)}
+body{font-family:'Quicksand',-apple-system,system-ui,sans-serif;background:radial-gradient(120% 70% at 50% -8%,rgba(245,183,208,.14) 0%,rgba(245,183,208,0) 46%),radial-gradient(80% 60% at 88% 8%,rgba(190,170,255,.10) 0%,rgba(190,170,255,0) 55%),linear-gradient(165deg,#2C2142 0%,#221C39 50%,#2A1D34 100%);background-attachment:fixed;color:var(--cream);line-height:1.7;min-height:100vh;-webkit-font-smoothing:antialiased}
+a{color:var(--blossom);text-decoration:underline;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+.wrap{width:100%;max-width:720px;margin:0 auto;padding:0 1.5rem}
+.top{padding:1.5rem 0 0}
+.top a{display:inline-flex;align-items:center;gap:.6rem;color:var(--cream);text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.25rem}
+.top img{width:36px;height:36px;border-radius:9px}
+.crumbs{margin-top:.9rem;font-size:.85rem;color:var(--cream-muted)}
+.crumbs a{color:var(--cream-muted)}
+article{padding:2rem 0 1rem}
+.kicker{font-weight:600;font-size:.8rem;letter-spacing:.28em;text-transform:uppercase;color:var(--blossom);margin-bottom:.9rem}
+h1{font-weight:700;font-size:clamp(1.9rem,5.4vw,2.8rem);line-height:1.12;letter-spacing:-.02em;margin-bottom:1rem}
+h2{font-weight:700;font-size:1.45rem;line-height:1.25;margin:2.4rem 0 .8rem}
+h3{font-weight:700;font-size:1.1rem;margin:1.8rem 0 .5rem}
+p{margin:0 0 1.1rem;font-size:1.05rem}
+.meta{font-size:.9rem;color:var(--cream-muted);margin-bottom:1.6rem}
+ul,ol{margin:0 0 1.2rem 1.3rem}
+li{margin-bottom:.45rem;font-size:1.05rem}
+blockquote{margin:1.5rem 0;padding:1rem 1.2rem;border-left:3px solid var(--blossom);background:var(--surface);border-radius:0 12px 12px 0;color:var(--cream)}
+blockquote p{margin:0}
+.toc{background:var(--surface);border:1px solid var(--surface-line);border-radius:16px;padding:1.1rem 1.3rem;margin:1.6rem 0}
+.toc strong{display:block;margin-bottom:.5rem}
+.toc ol{margin-bottom:0}
+.disclosure{font-size:.9rem;color:var(--cream-muted);border-top:1px solid var(--surface-line);padding-top:1rem;margin-top:2rem}
+.cta{margin:2.4rem 0 1rem;padding:1.6rem;text-align:center;background:rgba(243,167,198,.10);border:1px solid rgba(243,167,198,.28);border-radius:20px}
+.cta p{margin-bottom:1rem}
+.cta img{height:56px;width:auto;margin:0 auto}
+.more{margin:2rem 0 0}
+.more h2{font-size:1.1rem;margin-top:0}
+.cards{display:grid;gap:1rem;margin-top:1rem}
+.card{display:block;padding:1.2rem 1.3rem;background:var(--surface);border:1px solid var(--surface-line);border-radius:16px;text-decoration:none;color:var(--cream)}
+.card:hover{border-color:rgba(243,167,198,.5)}
+.card strong{display:block;font-size:1.08rem;margin-bottom:.3rem;color:var(--blossom)}
+.card span{font-size:.95rem;color:var(--cream-muted)}
+footer{padding:2.5rem 0 3rem;text-align:center;font-size:.9rem;color:var(--cream-muted)}
+footer .links{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 1.4rem;margin-bottom:.8rem}
+footer a{color:var(--cream-muted)}
