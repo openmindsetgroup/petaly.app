@@ -358,6 +358,14 @@ footer {
 .footer-links a:hover { color: var(--blossom); }
 .footer-meta { font-size: 0.82rem; color: var(--cream-muted); opacity: 0.85; }
 
+/* ── Section rhythm (added 2026-11-02): .container's "padding: 0 1.5rem" was overriding section's vertical padding, so these sections had none ── */
+.capabilities { padding-top: 1rem; padding-bottom: 1.5rem; }
+.privacy { padding-top: 2.5rem; padding-bottom: 1.5rem; }
+.pricing { padding-top: 2.5rem; padding-bottom: 1rem; }
+@media (max-width: 720px) {
+  .privacy, .pricing { padding-top: 2rem; }
+}
+
 /* ── Responsive ── */
 @media (max-width: 760px) {
   .cap-grid { grid-template-columns: repeat(2, 1fr); }
