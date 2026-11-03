@@ -35,8 +35,8 @@
 <p>Policies change, companies get acquired, and settings get reset by updates. An app with no servers can't be quietly repurposed, because there is nothing to repurpose. The privacy doesn't depend on trusting the developer's future intentions.</p>
 
 <h2>What a fair claim looks like</h2>
-<p>Be wary of absolutes. Almost every Android app that sells anything in-app uses Google Play's billing system, and that involves network access for the purchase itself. An app that says it "never touches the internet" is either not selling anything or not describing itself accurately. A precise claim sounds like this:</p>
-<blockquote><p>Your entries never leave your device, and the only network use is the store's own purchase processing.</p></blockquote>
+<p>Be wary of absolutes. Almost every Android app that sells anything in-app uses Google Play's billing system, which goes online to check purchases. An app that says it "never touches the internet" is either not selling anything or not describing itself accurately. A precise claim sounds like this:</p>
+<blockquote><p>Your entries never leave your device, and the only network use is the store's own billing library.</p></blockquote>
 
 <h2>Two checks to run today</h2>
 <ul>
@@ -46,7 +46,7 @@
 <p>For the rest, our <a href="/guides/private-sex-tracker-checklist/">six-question checklist for telling a private tracker from a "private" one</a> covers airplane mode, the store's data-safety label, accounts, deletion, permissions and export.</p>
 
 <h2>How Petaly is built</h2>
-<p>Petaly keeps your entries in an encrypted database on your phone. There is no account, no analytics and no Petaly server to send anything to. Premium is a one-time purchase through Google Play, and that purchase is the app's only network use. Export is free, so your history is never locked in.</p>
+<p>Petaly keeps your entries in an encrypted database on your phone. There is no account, no analytics and no Petaly server to send anything to. Premium is a one-time purchase through Google Play. Google Play's billing library is the app's only network use: it checks your purchase status when the app starts. Export is free, so your history is never locked in.</p>
 
 <div class="cta"><p><strong>Petaly is free to try.</strong> No account needed. Your entries never leave your device.</p><a href="https://play.google.com/store/apps/details?id=com.omsgroup.petaly" aria-label="Get Petaly on Google Play"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"/></a></div>
 <p class="disclosure">Disclosure: this guide is written by the people who make Petaly, so weigh our answers accordingly. The checks apply to any tracker, and we encourage you to run them on ours.</p>
